@@ -1,0 +1,10 @@
+.gitignore text eol=lf
+.gitattributes text eol=lf
+*.[mM][dD] text eol=lf
+*.[tT][xX][tT] text eol=lf
+
+Assets/Script/**/*.cs text eol=lf
+Assets/Scenes/**/.unity binary
+Assets/Resources/Prefabs/**/*.prefab binary
+Assets/Resources/Sprites/**/*.png binary
+Assets/**/*.meta text eol=lf
