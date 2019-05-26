@@ -7,7 +7,6 @@ using System.Runtime.InteropServices;
 
 public class Chirp : MonoBehaviour
 {
-    AndroidJavaObject bla;
     [System.Serializable]
     public class ConfigEntity
     {
