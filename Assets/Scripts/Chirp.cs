@@ -7,7 +7,6 @@ using System.Runtime.InteropServices;
 
 public class Chirp : MonoBehaviour
 {
-    AndroidJavaObject bla;
     [System.Serializable]
     public class ConfigEntity
     {
@@ -129,9 +128,8 @@ public class Chirp : MonoBehaviour
         string payload = "Test message";
         payload = MessageInput.text.Length > 0 ? MessageInput.text : payload;
         SendButton.interactable = false;
-        byte[] bla = new byte[] { 0x03, 0x19, 0x19 };
         try {
-            ChirpPlugin.SendData(bla);
+            ChirpPlugin.SendData(payload);
         } catch(System.Exception ex) {
             ErrorText.text = ex.Message;
             SendButton.interactable = true;
