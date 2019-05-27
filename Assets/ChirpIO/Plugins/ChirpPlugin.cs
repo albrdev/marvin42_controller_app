@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
+using System.Text;
 
 public enum ChirpStateEnum {
     NotInitialised,
