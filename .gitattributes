@@ -3,8 +3,21 @@
 *.[mM][dD] text eol=lf
 *.[tT][xX][tT] text eol=lf
 
-Assets/Script/**/*.cs text eol=lf
-Assets/Scenes/**/.unity binary
-Assets/Resources/Prefabs/**/*.prefab binary
-Assets/Resources/Sprites/**/*.png binary
-Assets/**/*.meta text eol=lf
+Assets/**/*.meta binary eol=lf
+Assets/**/*.asset binary eol=lf
+Assets/**/*.unity binary
+Assets/**/*.prefab binary
+Assets/**/*.cs text eol=lf
+Assets/**/*.png binary
+Assets/**/*.xcf binary
+Assets/**/*.json text eol=lf
+
+Assets/**/*.jar binary
+Assets/**/*.aar binary
+
+Assets/**/*.h text eol=lf
+Assets/**/*.mm text eol=lf
+Assets/**/*.modulemap text eol=lf
+
+Assets/ChirpIO/Plugins/iOS/ChirpConnect.framework/ChirpConnect binary
+Assets/ChirpIO/Plugins/iOS/ChirpConnect.framework/Info.plist binary
