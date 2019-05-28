@@ -130,6 +130,7 @@ public class Marvin42_Controller : MonoBehaviour
     public void SendMotorStop()
     {
         Debug.Log("Sending MotorStop");
+        m_SpeedRightText.text = m_SpeedLeftText.text = "0";
         ChirpManager.SendData(new byte[] { (byte)CommandID.MotorStop });
     }
 
