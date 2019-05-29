@@ -61,7 +61,7 @@ public class Marvin42_Controller : MonoBehaviour
         set
         {
             m_TouchFieldActive = value;
-            m_TouchFieldBorder.color = ColorTools.FromHex(m_TouchFieldActive ? "FFD559" : "BF9F42");
+            m_TouchFieldBorder.color = ColorTools.FromHex(m_TouchFieldActive ? "4F4F4F" : "2F2F2F");
         }
     }
 
