@@ -911,6 +911,8 @@ MonoBehaviour:
   m_SpeedRightText: {fileID: 2996220261440956575}
   m_ChirpStateText: {fileID: 2996220262627028716}
   m_ProgressBarRevolutionTime: 1
+  m_ProgressBarInactiveColor: {r: 0.18431373, g: 0.18431373, b: 0.18431373, a: 1}
+  m_ProgressBarActiveColor: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 1}
   m_ChirpAppKey: 
   m_ChirpAppSecret: 
   m_ChirpAppConfig: 
