@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 1}
+  m_Color: {r: 0.43529412, g: 0.43529412, b: 0.43529412, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 2996220262479655620}
   - component: {fileID: 2996220262479655623}
   - component: {fileID: 2996220262479655621}
+  - component: {fileID: 2044581617}
   m_Layer: 5
   m_Name: InteractableArea
   m_TagString: Untagged
@@ -541,6 +542,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Assets.Scripts.Components.PointerClickHandler+PointerEvent, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &2044581617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2996220262479655617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be97d1c72beb5c5468955b72bc703dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2996220262606824192
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,8 +923,6 @@ MonoBehaviour:
   m_SpeedRightText: {fileID: 2996220261440956575}
   m_ChirpStateText: {fileID: 2996220262627028716}
   m_ProgressBarRevolutionTime: 1
-  m_ProgressBarInactiveColor: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 1}
-  m_ProgressBarActiveColor: {r: 0.37254903, g: 0.37254903, b: 0.37254903, a: 1}
   m_ChirpAppKey: 
   m_ChirpAppSecret: 
   m_ChirpAppConfig: 

@@ -44,11 +44,6 @@ public class Marvin42_Controller : MonoBehaviour
     private float m_ProgressBarRevolutionTime = 1f;
 
     [SerializeField]
-    private Color m_ProgressBarInactiveColor = Color.black;
-    [SerializeField]
-    private Color m_ProgressBarActiveColor = Color.white;
-
-    [SerializeField]
     private string m_ChirpAppKey = string.Empty;
     [SerializeField]
     private string m_ChirpAppSecret = string.Empty;
@@ -66,7 +61,14 @@ public class Marvin42_Controller : MonoBehaviour
         set
         {
             m_TouchFieldActive = value;
-            m_TouchFieldBorder.color = m_TouchFieldActive ? m_ProgressBarActiveColor : m_ProgressBarInactiveColor;
+            if(value)
+            {
+                m_TouchField.GetComponent<UIAlphaFader>().Fade(1f, 0.5f);
+            }
+            else
+            {
+                m_TouchField.GetComponent<UIAlphaFader>().Fade(0.5f, 0.25f);
+            }
         }
     }
 
