@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 1682803281}
   - component: {fileID: 1682803280}
   m_Layer: 5
-  m_Name: TouchField
+  m_Name: TouchFieldComponents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -911,11 +911,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 292660c17db9df0478bb6239d7b4930b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StartPosition: {x: 0, y: 0}
-  m_EndPosition: {x: 0, y: 0}
+  m_TouchStartPosition: {x: 0, y: 0}
+  m_TouchEndPosition: {x: 0, y: 0}
   m_TouchFieldActive: 0
   m_TouchField: {fileID: 2996220262479655623}
-  m_TouchFieldBorder: {fileID: 1682803280}
   m_CancelButton: {fileID: 1234737104085018878}
   m_StopButton: {fileID: 2996220263562162040}
   m_ProgressBar: {fileID: 2996220262880839129}
