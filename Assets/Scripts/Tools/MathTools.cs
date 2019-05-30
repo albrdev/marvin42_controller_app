@@ -1,8 +1,4 @@
-﻿using System.Text;
-using System.Xml;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using System.Xml.Schema;
+﻿using System;
 
 namespace Assets.Scripts.Tools
 {
@@ -11,5 +7,7 @@ namespace Assets.Scripts.Tools
         public static float Neg(float value) { return value > 0f ? -value : value; }
 
         public static sbyte Clamp(sbyte value, sbyte min, sbyte max) { return value < min ? min : (value > max ? max : value); }
+
+        public static bool Approximately(float a, float b, float delta) { return Math.Abs(a - b) < delta; }
     }
 }

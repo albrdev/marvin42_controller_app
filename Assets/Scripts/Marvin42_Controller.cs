@@ -31,6 +31,10 @@ public class Marvin42_Controller : MonoBehaviour
     private Button m_CancelButton;
     [SerializeField, Tooltip("Send motor stop button")]
     private Button m_StopButton;
+    [SerializeField, Tooltip("Toggle motor speed value clamping to each other")]
+    private Toggle m_ClampMotorValuesToggle;
+    [SerializeField, Tooltip("Toggle motor speed value clamping to interval")]
+    private Toggle m_ClampToIntervalToggle;
     [SerializeField, Tooltip("Radial progress bar")]
     private Image m_ProgressBar;
     [SerializeField, Tooltip("Left motor speed value")]
@@ -40,6 +44,9 @@ public class Marvin42_Controller : MonoBehaviour
     [SerializeField, Tooltip("Current Chirp state")]
     private Text m_ChirpStateText;
 #pragma warning restore 0649
+
+    [SerializeField, Tooltip("If motor speed values is within this value's interval from each other, clamp them to the extremest of those values")]
+    private float m_MotorSpeedClampDelta = 5f;
 
     [SerializeField, Tooltip("The time it takes for thre progress bar to revolve a full circle")]
     private float m_ProgressBarRevolutionTime = 1f;
@@ -159,8 +166,40 @@ public class Marvin42_Controller : MonoBehaviour
             motorValues.y = MathTools.Neg(motorValues.y);
         }
 
+        float mscd = m_MotorSpeedClampDelta / 100f; // 'Convert' from percentage to decimal form
+
+        // Clamp motor values to an interval
+        if(m_ClampToIntervalToggle.isOn)
+        {
+            motorValues.x = Mathf.Round(motorValues.x / mscd) * mscd;
+            motorValues.y = Mathf.Round(motorValues.y / mscd) * mscd;
+        }
+
+        // Clamp motor values to each other, if they are close enough
+        if(m_ClampMotorValuesToggle.isOn)
+        {
+            // Clamp them to zero, if near center
+            if(MathTools.Approximately(motorValues.x, 0f, mscd) && MathTools.Approximately(motorValues.y, 0f, mscd))
+            {
+                motorValues.y = motorValues.x = 0f;
+            }
+            else if(MathTools.Approximately(motorValues.x, motorValues.y, mscd))
+            {
+                if(deviation.y > 0)
+                {
+                    // Clamp to maximum value if going forwards
+                    motorValues.y = motorValues.x = Mathf.Max(motorValues.x, motorValues.y);
+                }
+                else if(deviation.y < 0f)
+                {
+                    // Clamp to minumum value if going backwards
+                    motorValues.y = motorValues.x = Mathf.Min(motorValues.x, motorValues.y);
+                }
+            }
+        }
+
         motorValues *= 100f; // 'Convert' decimal to percent form
-        return new Vector2Int((int)Mathf.Clamp(motorValues.x, -100, 100), (int)Mathf.Clamp(motorValues.y, -100, 100)); // Clamp values and return them as int version of Vector2
+        return new Vector2Int((int)Mathf.Clamp(motorValues.x, -100, 100), (int)Mathf.Clamp(motorValues.y, -100, 100)); // Clamp values to min/max and return them as int version of Vector2
     }
 
     /// <summary>
