@@ -1228,6 +1228,7 @@ MonoBehaviour:
   m_SpeedRightText: {fileID: 2996220261440956575}
   m_ChirpStateText: {fileID: 2996220262627028716}
   m_MotorSpeedClampDelta: 5
+  m_MotorSpeedClampInterval: 5
   m_ProgressBarRevolutionTime: 1
   m_ChirpAppKey: 
   m_ChirpAppSecret: 
@@ -1588,7 +1589,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &7088330233780552916
 GameObject:
   m_ObjectHideFlags: 0

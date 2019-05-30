@@ -47,6 +47,8 @@ public class Marvin42_Controller : MonoBehaviour
 
     [SerializeField, Tooltip("If motor speed values is within this value's interval from each other, clamp them to the extremest of those values")]
     private float m_MotorSpeedClampDelta = 5f;
+    [SerializeField, Tooltip("Motor speed values is clamped within this interval")]
+    private float m_MotorSpeedClampInterval = 5f;
 
     [SerializeField, Tooltip("The time it takes for thre progress bar to revolve a full circle")]
     private float m_ProgressBarRevolutionTime = 1f;
@@ -166,18 +168,18 @@ public class Marvin42_Controller : MonoBehaviour
             motorValues.y = MathTools.Neg(motorValues.y);
         }
 
-        float mscd = m_MotorSpeedClampDelta / 100f; // 'Convert' from percentage to decimal form
-
         // Clamp motor values to an interval
-        if(m_ClampToIntervalToggle.isOn)
+        if(m_ClampToIntervalToggle.isOn && m_MotorSpeedClampInterval > 0f)
         {
-            motorValues.x = Mathf.Round(motorValues.x / mscd) * mscd;
-            motorValues.y = Mathf.Round(motorValues.y / mscd) * mscd;
+            float msci = m_MotorSpeedClampInterval / 100f; // 'Convert' from percentage to decimal form
+            motorValues.x = Mathf.Round(motorValues.x / msci) * msci;
+            motorValues.y = Mathf.Round(motorValues.y / msci) * msci;
         }
 
         // Clamp motor values to each other, if they are close enough
-        if(m_ClampMotorValuesToggle.isOn)
+        if(m_ClampMotorValuesToggle.isOn && m_MotorSpeedClampDelta > 0f)
         {
+            float mscd = m_MotorSpeedClampDelta / 100f; // 'Convert' from percentage to decimal form
             // Clamp them to zero, if near center
             if(MathTools.Approximately(motorValues.x, 0f, mscd) && MathTools.Approximately(motorValues.y, 0f, mscd))
             {
