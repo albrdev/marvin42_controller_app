@@ -1,4 +1,10 @@
-﻿using System.Collections.Generic;
+﻿/// <summary>
+/// Base class for UI component fading
+/// <author email="albrdev@gmail.com">Alexander Brunström</author>
+/// <date>2019-05-30</date>
+/// </summary>
+
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.ExtensionClasses;

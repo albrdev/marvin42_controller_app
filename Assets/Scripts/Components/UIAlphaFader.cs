@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Handles alpha fading of UI components
+/// <author email="albrdev@gmail.com">Alexander Brunström</author>
+/// <date>2019-05-30</date>
+/// </summary>
+
+using UnityEngine;
 using Assets.Scripts.ExtensionClasses;
 
 namespace Assets.Scripts.Components

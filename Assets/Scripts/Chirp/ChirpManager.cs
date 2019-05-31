@@ -1,4 +1,11 @@
-﻿namespace Assets.Scripts.Chirp
+﻿/// <summary>
+/// Wrapper for ChirpPlugin (part of Chirp Unity Plugin) class
+/// Uses Chirp Unity Plugin by Alexander Gutrits, https://github.com/AlexanderKub/chirp-unity-plugin (Released under MIT license)
+/// <author email="albrdev@gmail.com">Alexander Brunström</author>
+/// <date>2019-05-28</date>
+/// </summary>
+
+namespace Assets.Scripts.Chirp
 {
     public static class ChirpManager
     {

@@ -1,4 +1,10 @@
-﻿using System;
+﻿/// <summary>
+/// Generic math functions
+/// <author email="albrdev@gmail.com">Alexander Brunström</author>
+/// <date>2019-05-28</date>
+/// </summary>
+
+using System;
 
 namespace Assets.Scripts.Tools
 {

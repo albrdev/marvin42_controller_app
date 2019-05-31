@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// marvin42 Controller main script
+/// <author email="albrdev@gmail.com">Alexander Brunström</author>
+/// <date>2019-05-28</date>
+/// </summary>
+
+using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.Components;
 using Assets.Scripts.Chirp;

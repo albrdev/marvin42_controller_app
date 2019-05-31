@@ -1,4 +1,11 @@
-﻿using System;
+﻿/// <summary>
+/// Attach to UI components to capture pointer clicks.
+/// Can be accessed from other components outside
+/// <author email="albrdev@gmail.com">Alexander Brunström</author>
+/// <date>2019-05-27</date>
+/// </summary>
+
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
