@@ -429,7 +429,6 @@ public class Marvin42_Controller : MonoBehaviour
         GUI.Label
         (
             new Rect(20f, 20f, ((float)Screen.width / 2), ((float)Screen.height / 2) * 0.25f),
-            $"Position\t= { RelativeTouchEndPosition.ToString("0.00") }\n" +
             $"Distance\t= { PointerMovementDistanceNormalized.ToString("0.00") }\n" +
             $"Deviation\t= { PointerDeviation.ToString("0.00") }",
             labelStyle
