@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Unity inspector GUI for ReadOnlyPropertyAttribute
+/// <author email="albrdev@gmail.com">Alexander Brunström</author>
+/// <date>2019-05-27</date>
+/// </summary>
+
+using UnityEngine;
 using UnityEditor;
 
 [CustomPropertyDrawer(typeof(ReadOnlyPropertyAttribute))]
