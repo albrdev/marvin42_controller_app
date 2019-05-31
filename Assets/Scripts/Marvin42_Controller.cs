@@ -85,6 +85,16 @@ public class Marvin42_Controller : MonoBehaviour
         }
     }
 
+    private Vector2 RelativeTouchStartPosition
+    {
+        get { return m_TouchStartPosition - (Vector2)m_TouchField.transform.position; }
+    }
+
+    private Vector2 RelativeTouchEndPosition
+    {
+        get { return m_TouchEndPosition - (Vector2)m_TouchField.transform.position; }
+    }
+
     /// <summary>
     /// Is called when Chirp state changes
     /// Sets UI text label to current state
@@ -111,7 +121,7 @@ public class Marvin42_Controller : MonoBehaviour
         get
         {
             // Distance moved (normalized) = distance moved / half of the touch field radius
-            return (Vector2.Distance(m_TouchStartPosition, m_TouchEndPosition) * 2) / (m_TouchField.GetComponent<RectTransform>().rect.height / 2);
+            return (Vector2.Distance(RelativeTouchStartPosition, RelativeTouchEndPosition) * 2) / (m_TouchField.GetComponent<RectTransform>().rect.height / 2);
         }
     }
 
@@ -141,9 +151,9 @@ public class Marvin42_Controller : MonoBehaviour
             return new Vector2
             (
                 // x = y of normalized cross product of touch field's top-center position and where the touch input ended (values between -1 and 1)
-                -Vector2Tools.CrossNormalized(m_TouchFieldTopCenterPosition, m_TouchEndPosition).y,
+                -Vector2Tools.CrossNormalized(m_TouchFieldTopCenterPosition, RelativeTouchEndPosition).y,
                 // y = Normalized dot product of touch field's top-center position and where the touch input ended, clamped to a value between -1 and 1
-                Mathf.Clamp(Vector2Tools.DotNormalized(m_TouchFieldTopCenterPosition, m_TouchEndPosition), -1f, 1f)
+                Mathf.Clamp(Vector2Tools.DotNormalized(m_TouchFieldTopCenterPosition, RelativeTouchEndPosition), -1f, 1f)
             );
         }
     }
@@ -367,7 +377,7 @@ public class Marvin42_Controller : MonoBehaviour
                 TouchFieldActive = m_TouchField.GetComponent<PointerClickHandler>().PointerDown; // If the touch was inside the touch field
                 if(TouchFieldActive)
                 {
-                    m_TouchStartPosition = touch.position - (Vector2)m_TouchField.transform.position; // Calculate start position relative to the touch field
+                    m_TouchStartPosition = touch.position; // Get start position
 
                     // Reset UI texts
                     m_SpeedLeftText.text = "0";
@@ -376,7 +386,7 @@ public class Marvin42_Controller : MonoBehaviour
             }
             else if(touch.phase == TouchPhase.Ended && TouchFieldActive) // The touch was released from the screen
             {
-                m_TouchEndPosition = touch.position - (Vector2)m_TouchField.transform.position; // Calculate end position relative to the touch field
+                m_TouchEndPosition = touch.position; // Get end position
 
                 Vector2Int motorValues = GetMotorSpeedValues();
                 // Cast motor speed values to signed bytes
@@ -391,7 +401,7 @@ public class Marvin42_Controller : MonoBehaviour
             }
             else if(touch.phase == TouchPhase.Moved && TouchFieldActive) // The touch is moving accross the screen
             {
-                m_TouchEndPosition = touch.position - (Vector2)m_TouchField.transform.position; // Calculate end position relative to the touch field
+                m_TouchEndPosition = touch.position; // Get end position
 
                 // Gets motor speed values and displays them on the screen so we can preview them before releasing
                 Vector2Int motorValues = GetMotorSpeedValues();
@@ -419,7 +429,7 @@ public class Marvin42_Controller : MonoBehaviour
         GUI.Label
         (
             new Rect(20f, 20f, ((float)Screen.width / 2), ((float)Screen.height / 2) * 0.25f),
-            $"Position\t= { m_TouchEndPosition.ToString("0.00") }\n" +
+            $"Position\t= { RelativeTouchEndPosition.ToString("0.00") }\n" +
             $"Distance\t= { PointerMovementDistanceNormalized.ToString("0.00") }\n" +
             $"Deviation\t= { PointerDeviation.ToString("0.00") }",
             labelStyle
