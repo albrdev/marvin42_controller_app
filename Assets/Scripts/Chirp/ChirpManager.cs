@@ -1,12 +1,15 @@
-﻿/// <summary>
-/// Wrapper for ChirpPlugin (part of Chirp Unity Plugin) class
-/// Uses Chirp Unity Plugin by Alexander Gutrits, https://github.com/AlexanderKub/chirp-unity-plugin (Released under MIT license)
+﻿/// <copyright file="ChirpManager.cs" company="Region Östergötland">
+/// Released under Apache License v2.0
+/// </copyright>
 /// <author email="albrdev@gmail.com">Alexander Brunström</author>
 /// <date>2019-05-28</date>
-/// </summary>
 
 namespace Assets.Scripts.Chirp
 {
+    /// <summary>
+    /// Wrapper for ChirpPlugin (part of Chirp Unity Plugin) class
+    /// Uses Chirp Unity Plugin by Alexander Gutrits, https://github.com/AlexanderKub/chirp-unity-plugin (Released under MIT license)
+    /// </summary>
     public static class ChirpManager
     {
         public static string Key { get; set; } = null;

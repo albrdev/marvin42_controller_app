@@ -1,8 +1,8 @@
-﻿/// <summary>
-/// marvin42 Controller main script
+﻿/// <copyright file="Marvin42_Controller.cs" company="Region Östergötland">
+/// Released under Apache License v2.0
+/// </copyright>
 /// <author email="albrdev@gmail.com">Alexander Brunström</author>
 /// <date>2019-05-28</date>
-/// </summary>
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,7 +19,8 @@ public enum CommandID : byte
 }
 
 /// <summary>
-/// marvin42 Controller main component
+/// marvin42 Controller main component script
+/// Quite a messy script due to limited time
 /// </summary>
 public class Marvin42_Controller : MonoBehaviour
 {
